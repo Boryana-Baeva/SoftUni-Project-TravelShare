@@ -1,0 +1,87 @@
+#header{
+    width: 100%;
+    padding: 20px 0px;
+    background-color: #39549f;
+}
+#header ul{
+    margin-left: 50px;
+}
+#header ul li{
+    display: inline;
+    margin-right: 40px;
+}
+#header ul li a{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:white;
+}
+#header .menuMobile{
+    display: none;
+}
+#header .menuMobile a{
+    background-image: url(../images/menu-button-of-three-horizontal-lines.png);
+    display: block;
+    width: 32px;
+    height: 32px;
+    float:right;
+}
+#idea{
+    padding: 30px 0px;
+    background-color: lightgray;
+}
+#idea .card{
+    width: 100%;
+    text-align: center;
+}
+#idea h2{
+    text-align:center;
+    margin-bottom: 40px;
+}
+#idea h4{
+    text-align:center;
+    margin-bottom: 20px;
+}
+#idea .card .icon{
+    display: inline-block;
+    background-image: url(../images/sprite.png);
+    width: 75px;
+    height: 75px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#idea .card .icon-help{
+    background-position: 0px 0px;
+}
+#idea .card .icon-money{
+    background-position: -75px 0px;
+}
+#idea .card .icon-keys{
+    background-position: -145px 0px;
+}
+#idea .card .icon-nature{
+    background-position: -220px 0px;
+}
+#idea #ideaButton{
+    text-align: center;
+    margin-top:30px;
+}
+#idea #ideaButton button{
+    height: 40px;
+    background-color: transparent;
+    border-radius: 2px;
+    border: 2px solid grey;
+}
+#idea #ideaButton button:hover{
+    border-color: #39549f;
+}
+@media screen and (max-width: 990px){
+    #header .menuDesktop{
+        display: none;
+    }
+    #header .menuMobile{
+        display: block;
+    }
+}
+

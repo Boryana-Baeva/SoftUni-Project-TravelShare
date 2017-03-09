@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <title>Title</title>
@@ -32,13 +33,53 @@
 </div>
 <div id="registerForm">
     <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12">
+            <h1>Регистрация</h1>
+            <h4>Вече имаш профил? Влез от <a href="login.html">тук.</a></h4>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8">
             <form method="post">
                 <div class="form-group">
-                    <label for="">Username</label>
-                    <input type="text" id="username">
+                    <label for="username">Никнейм</label>
+                    <input type="text" class="form-control" id="username">
+                    <label for="firstName">Име</label>
+                    <input type="text" id="firstName" class="form-control">
+                    <label for="lastName">Фамилия</label>
+                    <input type="text" id="lastName" class="form-control">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control">
+                    <label for="password">Парола</label>
+                    <input type="password" id="password" class="form-control">
+                    <label for="confirmPassword">Потвърди паролата</label>
+                    <input type="password" id="confirmPassword" class="form-control">
+                    <label for="birthday">Дата на раждане</label>
+                    <input type="date" id="birthday" class="form-control">
+                    <label for="username">Пол</label>
+                    <select class="form-control" id="gender">
+                        <option value="male">Мъж</option>
+                        <option value="female">Жена</option>
+                    </select>
+                    <label for="phoneNumber">Телефон</label>
+                    <input type="text" id="phoneNumber" class="form-control">
+                    <hr>
+                    <label for="rules">
+                        <input type="checkbox" class="form-check-input" id="rules">
+                        Прочетох и съм съгласен с правилата.
+                    </label>
+                    <hr>
+                    <button type="submit" id="createAcc">Създай акаунт</button>
                 </div>
             </form>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h3>Знаете ли, че:</h3>
+            <ul>
+                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+            </ul>
         </div>
     </div>
 </div>

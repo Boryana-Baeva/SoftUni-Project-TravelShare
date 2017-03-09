@@ -76,6 +76,12 @@
 #idea #ideaButton button:hover{
     border-color: #39549f;
 }
+#registerForm h1{
+    text-align: center;
+}
+#registerForm h4{
+    text-align: center;
+}
 @media screen and (max-width: 990px){
     #header .menuDesktop{
         display: none;

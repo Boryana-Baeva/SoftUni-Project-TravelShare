@@ -5,7 +5,7 @@ require_once 'app.php';
 
 
 $userService = new UserService($db, $encryptionService);
-if (isset($_POST['register']) && isset($_POST['checkbox']) && isset($_POST['g-recaptcha-response'])) {
+if (isset($_POST['register']) && isset($_POST['rules']) && isset($_POST['g-recaptcha-response'])) {
 
     $captcha = $_POST['g-recaptcha-response'];
 

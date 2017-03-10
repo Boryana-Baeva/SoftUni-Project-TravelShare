@@ -328,12 +328,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `picture` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table travel_sharing.users: ~1 rows (approximately)
+-- Dumping data for table travel_sharing.users: ~6 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `gender`, `phone_number`, `rating`, `picture`) VALUES
-	(1, 'john', '123', 'John', 'Doe', 'john@gmail.com', '1996-03-06 20:00:00', 'Male', '+359887123456', 0, '0');
+	(1, 'john', '123', 'John', 'Doe', 'john@gmail.com', '1996-03-06 20:00:00', 'Male', '+359887123456', 0, '0'),
+	(18, 'anton', '$2y$10$BNw0g6jPDvWsWsohq4rcaOetDe1jFUN8n3/M5VpZY8pEe1yOvcxlS', 'Антон', 'Петров', 'toni@gmail.com', '1996-07-20 00:00:00', 'male', '+359888246893', 0, NULL),
+	(21, 'ivo', '$2y$10$gRve5KpacU9phhZY5/AkSeRsDOSLsBFCwXyjfTgmP26VMWKi4cblO', 'Иво', 'Георгиев', 'ivo@mail.com', '1996-07-20 00:00:00', 'male', '+359887457386', 0, NULL),
+	(22, 'yana', '$2y$10$mg4YBrG4atVRUC3dKk81pePoQc3zyUawVXB7UgK8cQwQ14FclwR62', 'Яна', 'Димитрова', 'yana@gmail.com', '1992-11-01 00:00:00', 'female', '+359887457386', 0, NULL),
+	(26, 'chris', '$2y$10$goruxt/0E7rAzqblK4iOs.2Ij73CfkWvfeBP8mGQ.07zkEbmcwmO2', 'Кристиан', 'Ангелов', 'chris@mail.com', '1992-05-30 00:00:00', 'male', '888197795', 0, NULL),
+	(28, 'angel', '$2y$10$EwdKJtgj9et0gQRmtfh7lOzk2aR9H92ntzyZ8muBX9ka0NwNLS0pa', 'Ангел', 'Начев', 'angel@mail.bg', '1992-12-02 00:00:00', 'male', '+359888192038', 0, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

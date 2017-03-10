@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <title>Title</title>
@@ -37,6 +37,18 @@
             <h1>Регистрация</h1>
             <h4>Вече имаш профил? Влез от <a href="login.html">тук.</a></h4>
         </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 pull-right">
+            <div class="facts">
+                <h3 id="test">Знаете ли, че:</h3>
+                <ul>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                </ul>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-6 col-md-8">
             <form method="post">
                 <div class="form-group">
@@ -66,22 +78,14 @@
                         <input type="checkbox" class="form-check-input" id="rules">
                         Прочетох и съм съгласен с правилата.
                     </label>
+                    <div class="g-recaptcha" data-sitekey="6LcrfxgUAAAAAF97W8IbPD10o_JEgUDbIUOiLIw8"></div>
                     <hr>
-                    <button type="submit" id="createAcc">Създай акаунт</button>
+                    <button type="submit" class="btn btn-primary" id="createAcc">Създай акаунт</button>
                 </div>
             </form>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <h3>Знаете ли, че:</h3>
-            <ul>
-                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-            </ul>
-        </div>
     </div>
 </div>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>

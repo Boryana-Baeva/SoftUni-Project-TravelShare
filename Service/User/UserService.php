@@ -5,6 +5,7 @@ namespace Service\User;
 use Adapter\DatabaseInterface;
 use Exceptions\RegisterException;
 use Service\Encryption\EncryptionServiceInterface;
+use Data\Users\User;
 
 class UserService implements UserServiceInterface
 {
@@ -42,7 +43,7 @@ class UserService implements UserServiceInterface
         }
 
         $passwordHash = $this->encryptionService->encrypt($password);
-        
+
 
         $interval = $birthday->diff(new \DateTime('now'));
         if ($interval->y < self::MIN_AGE_ALLOWED) {
@@ -83,4 +84,39 @@ class UserService implements UserServiceInterface
             ]
         );
     }
+
+    public function login($email, $password): bool
+    {
+        $query = "SELECT
+                   id,
+                   username,
+                   password
+                FROM
+                   users
+                WHERE
+                   email = ?";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(
+            [
+                $email
+            ]
+        );
+        /** @var User $user */
+        $user = $stmt->fetchObject(User::class);
+        if (!$user) {
+            return false;
+        }
+
+        $passwordHash = $user->getPassword();
+
+        if ($this->encryptionService->isValid($passwordHash, $password)) {
+            $_SESSION['user_id'] = $user->getId();
+            $_SESSION['username'] = $user->getUsername();
+            return true;
+        }
+
+        return false;
+    }
+
 }

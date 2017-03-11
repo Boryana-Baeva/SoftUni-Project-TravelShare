@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   CONSTRAINT `FK_posts_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table travel_sharing.posts: ~1 rows (approximately)
+-- Dumping data for table travel_sharing.posts: ~0 rows (approximately)
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 INSERT INTO `posts` (`id`, `user_id`, `date_published`, `town_id_from`, `town_id_to`, `seats`, `departure_time`, `price`) VALUES
 	(1, 1, '2017-04-06 19:29:28', 1, 3, 2, '2017-04-10 13:00:00', 20);
@@ -328,9 +328,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `picture` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table travel_sharing.users: ~6 rows (approximately)
+-- Dumping data for table travel_sharing.users: ~7 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `gender`, `phone_number`, `rating`, `picture`) VALUES
 	(1, 'john', '123', 'John', 'Doe', 'john@gmail.com', '1996-03-06 20:00:00', 'Male', '+359887123456', 0, '0'),
@@ -338,7 +338,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `e
 	(21, 'ivo', '$2y$10$gRve5KpacU9phhZY5/AkSeRsDOSLsBFCwXyjfTgmP26VMWKi4cblO', 'Иво', 'Георгиев', 'ivo@mail.com', '1996-07-20 00:00:00', 'male', '+359887457386', 0, NULL),
 	(22, 'yana', '$2y$10$mg4YBrG4atVRUC3dKk81pePoQc3zyUawVXB7UgK8cQwQ14FclwR62', 'Яна', 'Димитрова', 'yana@gmail.com', '1992-11-01 00:00:00', 'female', '+359887457386', 0, NULL),
 	(26, 'chris', '$2y$10$goruxt/0E7rAzqblK4iOs.2Ij73CfkWvfeBP8mGQ.07zkEbmcwmO2', 'Кристиан', 'Ангелов', 'chris@mail.com', '1992-05-30 00:00:00', 'male', '888197795', 0, NULL),
-	(28, 'angel', '$2y$10$EwdKJtgj9et0gQRmtfh7lOzk2aR9H92ntzyZ8muBX9ka0NwNLS0pa', 'Ангел', 'Начев', 'angel@mail.bg', '1992-12-02 00:00:00', 'male', '+359888192038', 0, NULL);
+	(28, 'angel', '$2y$10$EwdKJtgj9et0gQRmtfh7lOzk2aR9H92ntzyZ8muBX9ka0NwNLS0pa', 'Ангел', 'Начев', 'angel@mail.bg', '1992-12-02 00:00:00', 'male', '+359888192038', 0, NULL),
+	(29, 'misho', '$2y$10$x4xIGBb6wvUXPdf4rpLzWeHcP.MXslcq2HB0S9YTtFZsVdo7jqK8u', 'Михаил', 'Божинов', 'misho@mail.com', '1988-05-15 00:00:00', 'male', '+359888123654', 0, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

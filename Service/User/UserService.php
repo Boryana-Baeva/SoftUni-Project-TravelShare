@@ -3,6 +3,7 @@
 namespace Service\User;
 
 use Adapter\DatabaseInterface;
+use Exceptions\LoginException;
 use Exceptions\RegisterException;
 use Service\Encryption\EncryptionServiceInterface;
 use Data\Users\User;
@@ -25,7 +26,19 @@ class UserService implements UserServiceInterface
                                 EncryptionServiceInterface $encryptionService)
     {
         $this->db = $db;
-       $this->encryptionService = $encryptionService;
+        $this->encryptionService = $encryptionService;
+    }
+
+    public function exists($username): bool
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->execute(
+            [
+                $username
+            ]
+        );
+
+        return (bool)$stmt->fetchRow();
     }
 
     public function register(string $firstName,
@@ -38,6 +51,10 @@ class UserService implements UserServiceInterface
                              string $gender,
                              string $phone)
     {
+        if($this->exists($username)){
+            throw new RegisterException("Username already exists");
+        }
+
         if ($password != $confirmPassword) {
             throw new RegisterException("Password mismatch");
         }
@@ -85,12 +102,13 @@ class UserService implements UserServiceInterface
         );
     }
 
-    public function login($email, $password): bool
+    public function login($email, $password)
     {
         $query = "SELECT
                    id,
                    username,
-                   password
+                   password,
+                   email
                 FROM
                    users
                 WHERE
@@ -105,18 +123,16 @@ class UserService implements UserServiceInterface
         /** @var User $user */
         $user = $stmt->fetchObject(User::class);
         if (!$user) {
-            return false;
+            throw new LoginException("Account registered with this email does not exist");
         }
 
         $passwordHash = $user->getPassword();
 
-        if ($this->encryptionService->isValid($passwordHash, $password)) {
-            $_SESSION['user_id'] = $user->getId();
-            $_SESSION['username'] = $user->getUsername();
-            return true;
+        if (!$this->encryptionService->isValid($passwordHash, $password)) {
+            throw new LoginException("Incorrect password");
         }
-
-        return false;
+        
+        return $user;
     }
 
 }

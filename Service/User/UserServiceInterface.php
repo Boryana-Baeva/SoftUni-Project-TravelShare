@@ -11,6 +11,8 @@ namespace Service\User;
 
 interface UserServiceInterface
 {
+    public function exists($username): bool;
+    
     public function register(string $firstName,
                              string $lastName,
                              string $username,
@@ -20,4 +22,8 @@ interface UserServiceInterface
                              \DateTime $birthday,
                              string $gender,
                              string $phone);
+    
+    public function  login($email, $password);
+    
+    
 }

@@ -4,13 +4,17 @@ require_once 'app.php';
 
 
 if (isset($_POST['login'])) {
-    $userService = new \Service\User\UserService($db, $encryptionService);
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if (!$userService->login($email, $password)) {
-        throw new \Exceptions\LoginException("Password mismatch!");
-    }
+    $userService = new \Service\User\UserService($db, $encryptionService);
+
+    $user = $userService->login($email, $password);
+
+    $_SESSION['user_id'] = $user->getId();
+    $_SESSION['username'] = $user->getUsername();
+    $_SESSION['email'] = $user->getEmail();
+
 
     header("Location: profile.php");
     exit;

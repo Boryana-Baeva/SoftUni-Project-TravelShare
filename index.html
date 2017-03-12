@@ -72,6 +72,46 @@
         </div>
     </div>
 </div>
+<div id="rides">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="offerRide">
+                    <span class="offerRidePicture"></span>
+                    <h3>Предлагам превоз</h3>
+                    <div class="offerRideExpand">
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="from">От</label>
+                                <input type="text" class="form-control" id="from" name="from">
+                                <label for="destination">До</label>
+                                <input type="text" id="destination" class="form-control" name="destination">
+                                <label for="date">Дата и час</label>
+                                <input type="datetime" id="date" class="form-control" name="date">
+                                <label for="seats">Свободни места</label>
+                                <input type="number" id="seats" class="form-control" name="seats">
+                                <label for="price">Цена</label>
+                                <input type="text" id="price" class="form-control" name="price">
+                                <label for="description">Описание</label>
+                                <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                                <button type="submit" class="btn btn-primary" id="publishRide" name="publishRide">Публикувай</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="searchRide">
+                    <span class="searchRidePicture"></span>
+                    <h3>Търся превоз</h3>
+                    <div class="searchRideExpand">
+                        <p>test</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/custom.js"></script>
 </body>

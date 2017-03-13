@@ -14,3 +14,4 @@ $db = new \Adapter\PDODatabase(
 );
 
 $encryptionService = new BCryptEncryptionService();
+$app = new \Core\Application();

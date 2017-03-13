@@ -196,8 +196,29 @@
     cursor: pointer;
     text-align:center;
 }
+
+#rides .offerRide h3::before{
+    content: ' ';
+    background-image:url(../images/down-arrow.png);
+    display: block;
+    position:absolute;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+#rides .offerRide .down::before{
+    -moz-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
 #rides .searchRide{
     border: 2px solid blue;
+}
+#rides .centerButton{
+    text-align:center;
 }
 #rides .searchRide span{
     background-image: url(../images/NEED-A-RIDE.png);
@@ -208,10 +229,26 @@
     height: 250px;
     display: block;
 }
-
 #rides .searchRide h3{
     cursor: pointer;
     text-align:center;
+}
+#rides .searchRide h3::before{
+    content: ' ';
+    background-image:url(../images/down-arrow.png);
+    display: block;
+    position:absolute;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+#rides .searchRide .down::before{
+    -moz-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
 }
 @media screen and (max-width: 990px){
     #header .menuDesktop{

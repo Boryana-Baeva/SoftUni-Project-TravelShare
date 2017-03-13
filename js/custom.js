@@ -3,5 +3,5 @@ $('.menuMobile').click(function(){
 });
 
 $('.offerRide').click(function(){
-    $('.offerRideExpand').slideToggle('slow');
+    $('.offerRideExpand:hidden').slideToggle('slow');
 });

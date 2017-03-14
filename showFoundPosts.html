@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Всички обяви</title>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3">
+                <a href="#">Logo</a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-9">
+                <div class="menuDesktop">
+                    <ul class="list-unstyled menuItems">
+                        <li><a href="#">Идеята</a></li>
+                        <li><a href="#">Търся превоз</a></li>
+                        <li><a href="#">Предлагам превоз</a></li>
+                        <li><a href="#">Правила</a></li>
+                        <li><a href="#">Отзиви</a></li>
+                    </ul>
+                </div>
+                <div class="menuMobile">
+                    <a href="#"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="posts">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <h1>Намерени пътувания</h1>
+                <div class="table-responsive">
+                    <?php $found = false; ?>
+                    <table class="table">
+                        <thead>
+                        <tr class="info">
+                            <th>Потребител</th>
+                            <th>От</th>
+                            <th>До</th>
+                            <th>Дата и час</th>
+                            <th>Цена</th>
+                            <th>Места</th>
+                            <th>Коментар*</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($searchResult->getPosts() as $post): ?>
+                        <?php $found = true; ?>
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="http://www.lumiereenglish.com/uploads/20161217223811person.png" width="52px"
+                                         height="52px">&nbsp;
+                                </a>
+
+                                <?= $post->getAuthor(); ?></td>
+                            <td><?= $post->getTownFrom(); ?></td>
+                            <td><?= $post->getTownTo(); ?></td>
+                            <td><?php
+                                $formatedDate = new Datetime($post->getDepartureTime());
+                                echo $formatedDate->format('d/m/Y H:i');
+                                ?> ч.
+                            </td>
+                            <td><?= $post->getPrice(); ?> лв</td>
+                            <td><?= $post->getSeats(); ?></td>
+                            <td><?= $post->getDescription(); ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <?php if(!$found): ?>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><h1 style="color: darkgrey;">Няма намерени публикации</h1></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

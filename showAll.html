@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <h1>Всички обяви</h1>
+                <h1>Всички пътувания</h1>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -50,37 +50,27 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php foreach ($posts->getPosts() as $post): ?>
                         <tr>
                             <td>
                                 <a href="#">
-                                    <img src="http://media02.hongkiat.com/google-panda/google-panda.jpg" width="52px" height="52px">
+                                    <img src="http://www.lumiereenglish.com/uploads/20161217223811person.png" width="52px"
+                                         height="52px">&nbsp;
                                 </a>
-                                Ebasimo
+
+                                <?= $post->getAuthor(); ?></td>
+                            <td><?= $post->getTownFrom(); ?></td>
+                            <td><?= $post->getTownTo(); ?></td>
+                            <td><?php
+                                $formatedDate = new Datetime($post->getDepartureTime());
+                                echo $formatedDate->format('d/m/Y H:i');
+                                ?> ч.
                             </td>
-                            <td>Бургас</td>
-                            <td>16.03.2017</td>
-                            <td>20:00</td>
-                            <td>2</td>
-                            <td>20 лв</td>
-                            <td>
-                                <a href="#">
-                                    <span class="icon icon-seeMore"></span>
-                                </a>
-                            </td>
+                            <td><?= number_format($post->getPrice(), 2, '.', ''); ?> лв</td>
+                            <td><?= $post->getSeats(); ?></td>
+                            <td><?= $post->getDescription(); ?></td>
                         </tr>
-                        <tr>
-                            <td>Бургас</td>
-                            <td>Варна</td>
-                            <td>16.03.2017</td>
-                            <td>22:00</td>
-                            <td>2</td>
-                            <td>20 лв</td>
-                            <td>
-                                <a href="#">
-                                    <span class="icon icon-seeMore"></span>
-                                </a>
-                            </td>
-                        </tr>
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

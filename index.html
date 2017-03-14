@@ -38,25 +38,25 @@
                 <h2>Един шофьор, много пътници. За едно по-приятно и полезно пътуване!</h2>
                 <h4>Споделеното пътуване е възможност за всички:</h4>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-3">
+            <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="card">
                     <div class="icon icon-help"></div>
                     <p>Да си помогнем взаимно!</p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-3">
+            <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="card">
                     <div class="icon icon-money"></div>
                     <p>Да пътуваме по-евтино!</p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-3">
+            <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="card">
                     <div class="icon icon-keys"></div>
                     <p>Да няма празни коли!</p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-3">
+            <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="card">
                     <div class="icon icon-nature"></div>
                     <p>Да мислим и опазваме природата!</p>
@@ -603,22 +603,23 @@
                                     <option value="255">Ябланица</option>
                                     <option value="256">Якоруда</option>
                                     <option value="257">Ямбол</option>
-                            </select>
+                                </select>
                                 <label for="date">Дата</label>
                                 <input type="date" id="date" class="form-control" name="date">
                                 <label for="date">Час</label>
                                 <input type="time" id="hour" class="form-control" name="hour">
                                 <label for="seats">Свободни места</label>
-                                <input type="number" id="seats" class="form-control" name="seats" max="4" min="1" placeholder="1-4">
+                                <input type="number" id="seats" class="form-control" name="seats" max="4" min="1"
+                                       placeholder="1-4">
                                 <label for="price">Цена</label>
                                 <input type="number" id="price" class="form-control" name="price" min="0.00"
                                        step="0.50">
                                 <label for="description">Описание</label>
                                 <textarea class="form-control" id="description" name="description" rows="4"></textarea>
                                 <div class="centerButton">
-                                <button type="submit" class="btn btn-primary" id="publishRide" name="publishRide">
-                                    Публикувай
-                                </button>
+                                    <button type="submit" class="btn btn-primary" id="publishRide" name="publishRide">
+                                        Публикувай
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -1157,11 +1158,12 @@
                                 <label for="date">Дата</label>
                                 <input type="date" id="searchDate" class="form-control" name="searchDate">
                                 <label for="seats">Свободни места</label>
-                                <input type="number" id="searchSeats" class="form-control" name="searchSeats" max="4" min="1" placeholder="1-4">
+                                <input type="number" id="searchSeats" class="form-control" name="searchSeats" max="4"
+                                       min="1" placeholder="1-4">
                                 <div class="centerButton">
-                                <button type="submit" class="btn btn-primary" id="searchRide" name="searchRide">
-                                    Търси
-                                </button>
+                                    <button type="submit" class="btn btn-primary" id="searchRide" name="searchRide">
+                                        Търси
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -1171,11 +1173,121 @@
         </div>
     </div>
 </div>
-<div id="listing"></div>
+<div id="listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <h3>Последни 5 обяви</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr class="info">
+                                <th>От</th>
+                                <th>До</th>
+                                <th>Дата</th>
+                                <th>Час</th>
+                                <th>Места</th>
+                                <th>Цена</th>
+                                <th>Още</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>София</td>
+                                <td>Бургас</td>
+                                <td>16.03.2017</td>
+                                <td>20:00</td>
+                                <td>2</td>
+                                <td>20 лв</td>
+                                <td>
+                                    <a href="#">
+                                        <span class="icon icon-seeMore"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Бургас</td>
+                                <td>Варна</td>
+                                <td>16.03.2017</td>
+                                <td>22:00</td>
+                                <td>2</td>
+                                <td>20 лв</td>
+                                <td>
+                                    <a href="#">
+                                        <span class="icon icon-seeMore"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="centerButton">
+                    <button type="submit" class="btn btn-primary" id="seeAll" name="seeAll">
+                        Виж всички
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="aboutUs">
     <div class="container">
         <div class="row">
-
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="picture first"></div>
+                <h5>Димитър</h5>
+                <div class="centerButton">
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to
+                    make a type specimen book.</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="picture second"></div>
+                <h5>Боряна</h5>
+                <div class="centerButton">
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-notGold"></span>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to
+                    make a type specimen book.</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="picture second"></div>
+                <h5>Боряна</h5>
+                <div class="centerButton">
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to
+                    make a type specimen book.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="centerButton">
+                    <span class="icon icon-fb"></span>
+                    <span class="icon icon-twitter"></span>
+                </div>
+                <h5>Team Glaurung@SoftUni 2017</h5>
+            </div>
         </div>
     </div>
 </div>

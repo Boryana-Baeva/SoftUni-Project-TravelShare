@@ -6,6 +6,7 @@ $('.offerRide').click(function () {
     if ($('.offerRideExpand').is(':hidden')) {
         $('.offerRideExpand').show('slow');
     }
+    $(".offerRideExpand").animate({ scrollTop: $('.offerRideExpand').height()}, 1000);
 });
 
 

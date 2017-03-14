@@ -71,10 +71,11 @@
     height: 40px;
     background-color: transparent;
     border-radius: 2px;
-    border: 2px solid grey;
+    border: 2px solid #4d90fe;
+    min-width: 140px;
 }
 #idea #ideaButton button:hover{
-    border-color: #4d90fe;
+    background-color: #4d90fe;
 }
 #registerForm h1{
     text-align: center;
@@ -217,7 +218,7 @@
 #rides .searchRide{
     border: 2px solid blue;
 }
-#rides .centerButton{
+.centerButton{
     text-align:center;
 }
 #rides .searchRide span{
@@ -250,6 +251,84 @@
     -webkit-transform:rotate(180deg);
     transform:rotate(180deg);
 }
+#listing{
+    background-color:lightgray;
+    padding: 30px 0px;
+}
+#listing h3{
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+#listing .icon-seeMore{
+    background-image: url(../images/question.png);
+    height: 24px;
+    width: 24px;
+    display: block;
+}
+#listing #seeAll{
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #4d90fe;
+    border-radius: 2px;
+    min-width: 140px;
+    margin-top: 40px;
+    color: black;
+}
+#listing #seeAll:hover{
+    background-color: #4d90fe;
+}
+#aboutUs{
+    padding: 50px 0px;
+}
+#aboutUs .picture{
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+}
+#aboutUs .icon{
+    display:inline-block;
+    width: 16px;
+    height: 16px;
+}
+#aboutUs .icon.icon-goldenStar{
+    background-image: url(../images/gold.png);
+}
+#aboutUs .icon.icon-notGold{
+    background-image: url(../images/notGold.png);
+}
+#aboutUs h5{
+    text-align: center;
+    font-weight: 600;
+}
+#aboutUs .picture.first{
+    background-image: url(../images/mitakamadafaka.jpg);
+}
+#aboutUs .picture.second{
+    background-image: url(../images/second.jpg);
+}
+#footer{
+    background-color:lightgray;
+    padding: 10px 0px;
+}
+#footer h5{
+    text-align: center;
+    font-weight: 600;
+}
+#footer .icon{
+    display:inline-block;
+    width: 24px;
+    height: 24px;
+}
+#footer .icon-fb{
+    background-image:url(../images/facebook.png);
+}
+#footer .icon-twitter{
+    background-image: url(../images/twitter.png);
+}
+
 @media screen and (max-width: 990px){
     #header .menuDesktop{
         display: none;

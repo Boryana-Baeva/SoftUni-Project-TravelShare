@@ -36,9 +36,9 @@ CREATE TABLE IF NOT EXISTS `posts` (
   CONSTRAINT `FK_posts_towns_from` FOREIGN KEY (`town_id_from`) REFERENCES `towns` (`id`),
   CONSTRAINT `FK_posts_towns_to` FOREIGN KEY (`town_id_to`) REFERENCES `towns` (`id`),
   CONSTRAINT `FK_posts_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table travel_sharing.posts: ~10 rows (approximately)
+-- Dumping data for table travel_sharing.posts: ~9 rows (approximately)
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 INSERT INTO `posts` (`id`, `user_id`, `date_published`, `town_id_from`, `town_id_to`, `seats`, `departure_time`, `price`, `description`) VALUES
 	(1, 1, '2017-04-06 19:29:28', 3, 1, 2, '2017-04-10 13:00:00', 20, NULL),
@@ -50,7 +50,10 @@ INSERT INTO `posts` (`id`, `user_id`, `date_published`, `town_id_from`, `town_id
 	(15, 22, '2017-03-13 02:15:11', 7, 111, 1, '2017-03-17 23:00:00', 12, ''),
 	(16, 22, '2017-03-13 02:17:31', 10, 73, 2, '2017-03-01 23:00:00', 10, ''),
 	(17, 22, '2017-03-13 02:19:34', 10, 54, 1, '2017-03-03 22:00:00', 12, ''),
-	(18, 22, '2017-03-13 02:29:10', 11, 202, 2, '2017-03-24 22:00:00', 23, '');
+	(18, 22, '2017-03-13 02:29:10', 11, 202, 2, '2017-03-24 22:00:00', 23, ''),
+	(19, 21, '2017-03-13 20:06:23', 42, 36, 4, '2017-03-18 13:00:00', 11, 'В колата има място максимум за два големи куфара.'),
+	(20, 21, '2017-03-13 22:24:58', 4, 7, 1, '2017-03-17 00:00:00', 8, ''),
+	(21, 26, '2017-03-14 01:12:54', 42, 36, 4, '2017-03-18 14:00:00', 5, '');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 
 -- Dumping structure for table travel_sharing.towns
@@ -344,7 +347,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table travel_sharing.users: ~8 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `gender`, `phone_number`, `rating`, `picture`) VALUES
-	(1, 'john', '123', 'John', 'Doe', 'john@gmail.com', '1996-03-06 20:00:00', 'male', '+359887123456', 0, '0'),
+	(1, 'stefan', '123', 'Стефан', 'Петров', 'stefan@gmail.com', '1996-03-06 20:00:00', 'male', '+359887123456', 0, '0'),
 	(18, 'anton', '$2y$10$BNw0g6jPDvWsWsohq4rcaOetDe1jFUN8n3/M5VpZY8pEe1yOvcxlS', 'Антон', 'Петров', 'toni@gmail.com', '1996-07-20 00:00:00', 'male', '+359888246893', 0, NULL),
 	(21, 'ivo', '$2y$10$gRve5KpacU9phhZY5/AkSeRsDOSLsBFCwXyjfTgmP26VMWKi4cblO', 'Иво', 'Георгиев', 'ivo@mail.com', '1996-07-20 00:00:00', 'male', '+359887457386', 0, NULL),
 	(22, 'yana', '$2y$10$mg4YBrG4atVRUC3dKk81pePoQc3zyUawVXB7UgK8cQwQ14FclwR62', 'Яна', 'Димитрова', 'yana@gmail.com', '1992-11-01 00:00:00', 'female', '+359887457386', 0, NULL),

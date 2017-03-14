@@ -328,7 +328,33 @@
 #footer .icon-twitter{
     background-image: url(../images/twitter.png);
 }
-
+#posts{
+    background-image: url(../images/big_thumb_00297a2528269ffcd01955cb6acb0a12.png);
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 90vh;
+}
+#posts a{
+    text-decoration: none;
+}
+#posts h1{
+    text-align:center;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    color: #ffffe6;
+    font-weight: 600;
+}
+#posts tbody{
+    background-color:#ffffe6;
+}
+#posts td{
+    vertical-align: middle;
+}
+#posts tr:hover{
+    background-color: #999966;
+    color: white;
+}
 @media screen and (max-width: 990px){
     #header .menuDesktop{
         display: none;

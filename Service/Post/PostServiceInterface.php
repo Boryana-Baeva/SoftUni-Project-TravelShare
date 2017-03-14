@@ -9,6 +9,9 @@
 namespace Service\Post;
 
 
+use Data\Posts\AllPostsViewData;
+use Data\Posts\Post;
+
 interface PostServiceInterface
 {
     public function publish($userId,
@@ -19,4 +22,13 @@ interface PostServiceInterface
                             \DateTime $departureTime,
                             $price,
                             $description);
+
+    public function findAll(): AllPostsViewData;
+
+    public function findSearched($townFrom,
+                                 $townTo,
+                                 \DateTime $departureTime,
+                                 $seats): AllPostsViewData;
+
+    public function findById($id): Post;
 }

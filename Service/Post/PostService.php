@@ -79,7 +79,8 @@ class PostService implements PostServiceInterface
                    t2.town_name AS townTo,
                    posts.departure_time AS departureTime,
                    posts.price,
-                   posts.seats
+                   posts.seats,
+                   posts.description
                 FROM
                    posts
                 INNER JOIN
@@ -102,11 +103,9 @@ class PostService implements PostServiceInterface
         $stmt->execute($params);
 
 
-
         $allPosts = new AllPostsViewData();
 
-        $lazyLoadedAllPosts = function() use($stmt)
-        {
+        $lazyLoadedAllPosts = function () use ($stmt) {
             /** @var PostsViewData $post */
             while ($post = $stmt->fetchObject(PostsViewData::class)) {
 
@@ -120,7 +119,9 @@ class PostService implements PostServiceInterface
 
     public function findAll(): AllPostsViewData
     {
-        return $this->find();
+        $order = " ORDER BY 
+	              posts.date_published DESC";
+        return $this->find($order);
     }
 
     public function findSearched($townFrom,
@@ -175,5 +176,13 @@ class PostService implements PostServiceInterface
         $post = $stmt->fetchObject(Post::class);
 
         return $post;
+    }
+
+    public function findRecent(): AllPostsViewData
+    {
+        $orderAndLimit = " ORDER BY 
+	              posts.date_published DESC
+                  LIMIT 5;";
+        return $this->find($orderAndLimit);
     }
 }

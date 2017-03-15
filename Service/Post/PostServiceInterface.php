@@ -31,4 +31,6 @@ interface PostServiceInterface
                                  $seats): AllPostsViewData;
 
     public function findById($id): Post;
+    
+    public function findRecent(): AllPostsViewData;
 }

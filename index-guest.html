@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/user-navbar.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3">
+                <a href="#">Logo</a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-9">
+                <div class="menuDesktop">
+                    <ul class="list-unstyled menuItems">
+                        <li><a href="#">Идеята</a></li>
+                        <li><a href="#rides" class="slide-section">Търся превоз</a></li>
+                        <li><a href="#rides" class="slide-section">Предлагам превоз</a></li>
+                        <li><a href="login.php" class="login-button">Вход</a></li>
+                        <li><a href="register.php" class="register-button">Регистрация</a></li>
+                    </ul>
+
+                </div>
+                <div class="menuMobile">
+                    <a href="#"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="idea">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <h2>Един шофьор, много пътници. За едно по-приятно и полезно пътуване!</h2>
+                <h4>Споделеното пътуване е възможност за всички:</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="card">
+                    <div class="icon icon-help"></div>
+                    <p>Да си помогнем взаимно!</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="card">
+                    <div class="icon icon-money"></div>
+                    <p>Да пътуваме по-евтино!</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="card">
+                    <div class="icon icon-keys"></div>
+                    <p>Да няма празни коли!</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="card">
+                    <div class="icon icon-nature"></div>
+                    <p>Да мислим и опазваме природата!</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div id="ideaButton">
+                    <form action="register.php">
+                        <button type="submit">Присъедини се</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="rides">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="offerRide">
+                    <span class="offerRidePicture"></span>
+                    <h3 class="test">Предлагам превоз</h3>
+                    <div class="offerRideExpand">
+                        <div class="container" style="padding:50px;">
+                            <div class="row">
+                                <div class="alert alert-danger">
+                                    <strong>Внимание!<br></strong> Моля влезте в профила си, за да публикувате - <a
+                                        href="login.php">ВХОД</a><br> Нямате акаунт? - <a href="register.php">РЕГИСТРАЦИЯ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="searchRide">
+                    <span class="searchRidePicture"></span>
+                    <h3>Търся превоз</h3>
+                    <div class="searchRideExpand">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <h3>Най-скоро публикувани:</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr class="info">
+                            <th>От</th>
+                            <th>До</th>
+                            <th>Дата</th>
+                            <th>Час</th>
+                            <th>Места</th>
+                            <th>Цена</th>
+                            <th>Още</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($recentPosts->getPosts() as $post): ?>
+                        <tr>
+                            <td><?= $post->getTownFrom(); ?></td>
+                            <td><?= $post->getTownTo(); ?></td>
+                            <td><?php
+                                    $formatedDate = new Datetime($post->getDepartureTime());
+                                echo $formatedDate->format('d/m/Y');
+                                ?>
+                            </td>
+                            <td><?php
+                                    echo $formatedDate->format('H:i');
+                                ?> ч.
+                            </td>
+                            <td><?= $post->getSeats(); ?></td>
+                            <td><?= number_format($post->getPrice(), 2, '.', ''); ?> лв</td>
+
+                            <td>
+                                <a href="#">
+                                    <span class="icon icon-seeMore"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="centerButton">
+                    <form action="show-all-posts.php">
+                        <button type="submit" class="btn btn-primary" id="seeAll" name="seeAll">
+                            Виж всички
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="aboutUs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="picture first"></div>
+                <h5>Димитър</h5>
+                <div class="centerButton">
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to
+                    make a type specimen book.</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="picture second"></div>
+                <h5>Боряна</h5>
+                <div class="centerButton">
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-notGold"></span>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to
+                    make a type specimen book.</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="picture second"></div>
+                <h5>Боряна</h5>
+                <div class="centerButton">
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                    <span class="icon icon-goldenStar"></span>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to
+                    make a type specimen book.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="centerButton">
+                    <span class="icon icon-fb"></span>
+                    <span class="icon icon-twitter"></span>
+                </div>
+                <h5>Team Glaurung@SoftUni 2017</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

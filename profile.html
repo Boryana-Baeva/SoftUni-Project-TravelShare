@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width"/>
+  <link rel="stylesheet" type="text/css" media="all" href="css/profile-style.css">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <a href="#">Logo</a>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-9">
+        <div class="menuDesktop">
+          <ul class="list-unstyled menuItems">
+            <li><a href="index-logged.html">Идеята</a></li>
+            <li><a href="#">Търся превоз</a></li>
+            <li><a href="#">Предлагам превоз</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+        <div class="menuMobile">
+          <a href="#"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div id="w">
+    <div id="content" class="clearfix">
+      <div id="userphoto"><img src="images/14642425_1309125205788946_5505446360160841357_n.jpg" alt="avatar-logo"></div>
+      <h1>Профил</h1>
+
+      <nav id="profiletabs">
+        <ul class="clearfix">
+          <li><a href="#bio" class="sel">Инфо</a></li>
+          <li><a href="#contact">Контакт</a></li>
+        </ul>
+      </nav>
+      
+      <section id="bio">
+        <p>Имена: Name + Family</p>
+        <p>Години: Age</p>
+      </section>
+      
+      <section id="contact" class="hidden">
+        <p>асддасда</p>
+        <p>хййййй„</p>
+      </section>
+
+    </div>
+
+
+    <!-- @end #content -->
+  </div>
+<div id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="centerButton">
+          <span class="icon icon-fb"></span>
+          <span class="icon icon-twitter"></span>
+        </div>
+        <h5>Team Glaurung@SoftUni 2017</h5>
+      </div>
+    </div>
+  </div>
+</div><!-- @end #w -->
+<script type="text/javascript">
+$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+    
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+    
+    $('#content section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+      /*this*/
+      $(newcontent).removeClass('hidden');
+  });
+});
+</script>
+</body>
+</html>

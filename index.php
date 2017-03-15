@@ -2,5 +2,11 @@
 
 include_once 'show-recent-posts.php';
 /** @var $recentPosts \Data\Posts\AllPostsViewData */
+
 include_once 'load-towns.php';
-include_once 'index.html';
+
+if(isset($_SESSION['user_id'])){
+    include_once 'index-logged.html';
+} else{
+    include_once 'index-guest.html';
+}

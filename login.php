@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
     $_SESSION['email'] = $user->getEmail();
 
 
-    header("Location: profile.php");
+    header("Location: index.php");
     exit;
 }
 

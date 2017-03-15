@@ -199,9 +199,7 @@
 }
 #rides .alert-danger{
     text-align:center;
-    margin-left: -28px;
-    width: 540px;
-
+    width: 100%;
 }
 
 #rides .alert-danger a{
@@ -344,6 +342,7 @@
     background-size: cover;
     width: 100%;
     height: 90vh;
+    overflow:auto;
 }
 #posts a{
     text-decoration: none;

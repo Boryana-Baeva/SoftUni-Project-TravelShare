@@ -31,7 +31,7 @@
                                     <!-- drop menu /да се оправи/ -->
                                     <ul class="menu">
                                         <li><a href="profile.html">Обяви</a></li>
-                                        <li><a href="index-guest.html">Изход <!--logout php тук --></a></li>
+                                        <li><a href="index.html">Изход <!--logout php тук --></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -86,7 +86,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="offerRide">
                     <span class="offerRidePicture"></span>
-                    <h3 class="test">Предлагам превоз</h3>
+                    <h3 class="offerShow">Предлагам превоз</h3>
                     <div class="offerRideExpand">
                         <form method="post" action="offer-ride.php">
                             <div class="form-group">
@@ -105,7 +105,7 @@
                                     <option value="1">Айтос</option>
                                     <option value="2">Аксаково</option>
                                     <option value="3">Албена</option>
-                                    <option value="4">Алфатар</option>
+                                    $(this).find("h3").toggleClass('down');           <option value="4">Алфатар</option>
                                     <option value="5">Антоново</option>
                                     <option value="6">Априлци</option>
                                     <option value="7">Ардино</option>
@@ -385,7 +385,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="searchRide">
                     <span class="searchRidePicture"></span>
-                    <h3>Търся превоз</h3>
+                    <h3 class="searchShow">Търся превоз</h3>
                     <div class="searchRideExpand">
                         <form method="post" action="search-ride.php">
                             <div class="form-group">

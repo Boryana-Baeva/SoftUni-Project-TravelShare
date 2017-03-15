@@ -6,7 +6,7 @@ include_once 'show-recent-posts.php';
 include_once 'load-towns.php';
 
 if(isset($_SESSION['user_id'])){
+    include_once 'index.html';
+}else{
     include_once 'index-logged.html';
-} else{
-    include_once 'index-guest.html';
 }

@@ -1,5 +1,8 @@
 $('.menuMobile').click(function () {
-    $('.menuItems').slideToggle('slow');
+    $('.mobileHidden').addClass('active');
+});
+$('.icon-rightArrow').click(function () {
+    $('.mobileHidden').removeClass('active');
 });
 
 /*$('.offerRide').click(function () {

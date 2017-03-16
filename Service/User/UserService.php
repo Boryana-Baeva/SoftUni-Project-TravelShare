@@ -10,7 +10,7 @@ use Data\Users\User;
 
 class UserService implements UserServiceInterface
 {
-    
+    const MIN_PASS_LENGTH = 6;
     /**
      * @var DatabaseInterface
      */
@@ -56,6 +56,10 @@ class UserService implements UserServiceInterface
 
         if ($password != $confirmPassword) {
             throw new RegisterException("Password mismatch");
+        }
+        
+        if(strlen($password) < self::MIN_PASS_LENGTH){
+            throw new RegisterException("Password must be at least 6 characters");
         }
 
         $passwordHash = $this->encryptionService->encrypt($password);

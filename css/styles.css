@@ -1,7 +1,7 @@
 #header{
     width: 100%;
     padding: 20px 0px;
-    background-color: white;
+    position:absolute;
 }
 #header ul{
     margin-left: 30px;
@@ -111,7 +111,7 @@
     text-align: center;
 }
 .bodyAllPosts #header ul{
-    float:right;
+    text-align:center;
 }
 #registerForm h4{
     color:white;
@@ -125,7 +125,28 @@
     float:right;
 }
 #registerForm .facts ul li{
+    margin-bottom: 10px;
+}
+#registerForm .facts ul li{
     color:white;
+}
+#registerForm .boxesName{
+    color:white;
+    margin: 10px 0;
+}
+
+#login{
+    background-image: url(../images/big_thumb_00297a2528269ffcd01955cb6acb0a12.png);
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content: center;
+}
+#login #vertCent{
+    align-self:center;
 }
 #login h1{
     text-align: center;

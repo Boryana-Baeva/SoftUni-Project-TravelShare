@@ -10,6 +10,7 @@ use Data\Users\User;
 
 class UserService implements UserServiceInterface
 {
+    
     /**
      * @var DatabaseInterface
      */
@@ -49,7 +50,7 @@ class UserService implements UserServiceInterface
                              string $gender,
                              string $phone)
     {
-        if($this->exists($username)){
+        if ($this->exists($username)) {
             throw new RegisterException("Username already exists");
         }
 
@@ -59,6 +60,7 @@ class UserService implements UserServiceInterface
 
         $passwordHash = $this->encryptionService->encrypt($password);
 
+        
         $query = "INSERT INTO users (
                        first_name,
                        last_name,
@@ -123,7 +125,34 @@ class UserService implements UserServiceInterface
         if (!$this->encryptionService->isValid($passwordHash, $password)) {
             throw new LoginException("Incorrect password");
         }
-        
+
+        return $user;
+    }
+
+    public function findById($id): User
+    {
+        $query =
+            "SELECT
+                users.username AS username,
+                users.first_name AS firstName,
+                users.last_name AS lastName,
+                users.date_of_birth AS birthday,
+                users.gender,
+                users.email,
+                users.phone_number AS phone,
+                users.rating,
+                users.picture
+            FROM 
+                users
+            WHERE
+                users.id = ?";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$id]);
+
+        /** @var User $user */
+        $user = $stmt->fetchObject(User::class);
+
         return $user;
     }
 

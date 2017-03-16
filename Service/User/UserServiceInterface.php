@@ -24,6 +24,7 @@ interface UserServiceInterface
                              string $phone);
     
     public function  login($email, $password);
-    
+
+    public function findById($id);
     
 }

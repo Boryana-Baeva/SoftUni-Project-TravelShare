@@ -63,6 +63,11 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-8">
+            <?php if(isset($_SESSION['errorMessage'])): ?>
+            <div class="alert alert-danger">
+                <strong>Registraction unsuccessful:  </strong><?= $_SESSION['errorMessage'] ?>
+            </div>
+            <?php endif; ?>
             <form method="post">
                 <div class="form-group">
                     <label for="username" class="boxesName">Никнейм</label>

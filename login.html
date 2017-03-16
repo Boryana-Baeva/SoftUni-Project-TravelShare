@@ -47,6 +47,11 @@
                 <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
                     <div class="loginStyle">
                         <h1>Вход</h1>
+                        <?php if(isset($_SESSION['errorMessage'])): ?>
+                        <div class="alert alert-danger">
+                            <strong>Login unsuccessful:  </strong><?= $_SESSION['errorMessage'] ?>
+                        </div>
+                        <?php endif; ?>
                         <form method="post">
                             <input type="text" name="email" placeholder="Email">
                             <input type="password" name="password" placeholder="Password">

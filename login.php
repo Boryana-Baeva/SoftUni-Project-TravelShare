@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
     $_SESSION['email'] = $user->getEmail();
 
 
-    header("Location: index-logged.html");
+    header("Location: index.php");
     exit;
 }
 

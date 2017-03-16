@@ -33,6 +33,6 @@ if(isset($_POST['publishRide'])){
         htmlentities($description)
     );
 
-    header("Location: profile.php");
+    header("Location: show-all-posts.php");
     exit;
 }

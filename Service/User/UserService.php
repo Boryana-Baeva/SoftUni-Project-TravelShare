@@ -10,8 +10,6 @@ use Data\Users\User;
 
 class UserService implements UserServiceInterface
 {
-    const MIN_AGE_ALLOWED = 18;
-
     /**
      * @var DatabaseInterface
      */
@@ -60,12 +58,6 @@ class UserService implements UserServiceInterface
         }
 
         $passwordHash = $this->encryptionService->encrypt($password);
-
-
-        $interval = $birthday->diff(new \DateTime('now'));
-        if ($interval->y < self::MIN_AGE_ALLOWED) {
-            throw new RegisterException("Underage not allowed");
-        }
 
         $query = "INSERT INTO users (
                        first_name,

@@ -81,7 +81,10 @@ class User
 
     public function getGender()
     {
-        return $this->gender;
+        if($this->gender == 'female'){
+            return 'жена';
+        }
+        return 'мъж';
     }
 
     public function getPicture()

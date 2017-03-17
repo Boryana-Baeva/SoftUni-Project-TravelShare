@@ -12,7 +12,9 @@ namespace Data\Posts;
 class PostsViewData
 {
     private $id;
+    private $authorId;
     private $author;
+    private $picture;
     private $datePublished;
     private $townFrom;
     private $townTo;
@@ -22,15 +24,24 @@ class PostsViewData
     private $description;
 
 
-
     public function getId()
     {
         return $this->id;
     }
-    
+
+    public function getAuthorId()
+    {
+        return $this->authorId;
+    }
+
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    public function getPicture()
+    {
+        return $this->picture;
     }
 
     public function getDatePublished()

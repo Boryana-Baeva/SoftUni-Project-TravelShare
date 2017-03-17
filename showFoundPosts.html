@@ -18,7 +18,7 @@
                         <li><a href="index.php#rides">Търся превоз</a></li>
                         <li><a href="index.php#rides">Предлагам превоз</a></li>
                         <li><a href="index.php#aboutUs">Отзиви</a></li>
-                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="profile.php?id=<?=$_SESSION['user_id'];?>">Профил</a></li>
                     </ul>
                 </div>
                 <a href="#" class="menuMobile">
@@ -33,7 +33,7 @@
                         <li><a href="index.php#rides">Търся превоз</a></li>
                         <li><a href="index.php#rides">Предлагам превоз</a></li>
                         <li><a href="index.php#aboutUs">Отзиви</a></li>
-                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="profile.php?id=<?=$_SESSION['user_id'];?>">Профил</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,14 +62,13 @@
                         <tbody>
                         <?php foreach ($searchResult->getPosts() as $post): ?>
                         <?php $found = true; ?>
-                        <tr>
                             <td>
-                                <a href="#">
-                                    <img src="http://www.lumiereenglish.com/uploads/20161217223811person.png" width="52px"
-                                         height="52px">&nbsp;
+                                <a href="profile.php?id=<?= $post->getAuthorId(); ?>">
+                                    <img src="<?= $post->getPicture(); ?>" width="52px"
+                                         height="52px" style="border-radius: 50%">&nbsp;
                                 </a>
 
-                                <?= $post->getAuthor(); ?></td>
+                                <a href="profile.php?id=<?= $post->getAuthorId(); ?>"><?= $post->getAuthor(); ?></a></td>
                             <td><?= $post->getTownFrom(); ?></td>
                             <td><?= $post->getTownTo(); ?></td>
                             <td><?php

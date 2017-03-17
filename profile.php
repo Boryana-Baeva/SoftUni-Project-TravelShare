@@ -1,7 +1,14 @@
 <?php
 
+use Service\User\UserService;
+
 require_once 'app.php';
 
 $app->checkLogin();
 
-echo "Здравей, " . $_SESSION['username'];
+$userService = new UserService($db, $encryptionService);
+
+$id = $_GET['id'];
+$user = $userService->findById($id);
+
+include_once 'profile.html';

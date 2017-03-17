@@ -18,7 +18,7 @@
                         <li><a href="#rides" class="slide-section">Търся превоз</a></li>
                         <li><a href="#rides" class="slide-section">Предлагам превоз</a></li>
                         <li><a href="index.php#aboutUs">Отзиви</a></li>
-                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="profile.php?id=<?=$_SESSION['user_id'];?>">Профил</a></li>
                     </ul>
                 </div>
                 <a class="menuMobile">
@@ -36,7 +36,7 @@
                             <a href="#rides" class="slide-section">Предлагам превоз</a>
                         </li>
                         <li><a href="index.php#aboutUs">Отзиви</a></li>
-                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="profile.php?id=<?=$_SESSION['user_id'];?>">Профил</a></li>
                     </ul>
                 </div>
             </div>
@@ -962,7 +962,7 @@
                                 <td><?= number_format($post->getPrice(), 2, '.', ''); ?> лв</td>
 
                                 <td>
-                                    <a href="#">
+                                    <a href="profile.php?id=<?= $post->getAuthorId(); ?>">
                                         <span class="icon icon-seeMore"></span>
                                     </a>
                                 </td>

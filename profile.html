@@ -17,10 +17,10 @@
                 <div class="menuDesktop">
                     <ul class="list-unstyled menuItems">
                         <li><a href="index.php">Начало</a></li>
-                        <li><a href="index-logged.html#rides" class="slide-section">Търся превоз</a></li>
-                        <li><a href="index-logged.html#rides" class="slide-section">Предлагам превоз</a></li>
-                        <li><a href="index-logged.html#aboutUs">Отзиви</a></li>
-                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="index.php#rides" class="slide-section">Търся превоз</a></li>
+                        <li><a href="index.php#rides" class="slide-section">Предлагам превоз</a></li>
+                        <li><a href="index.php#aboutUs">Отзиви</a></li>
+                        <li><a href="profile.php?id=<?=$_SESSION['user_id'];?>">Профил</a></li>
                     </ul>
                 </div>
                 <a class="menuMobile">
@@ -33,13 +33,13 @@
                         </li>
                         <li><a href="index.php">Начало</a></li>
                         <li>
-                            <a href="index-logged.html#rides" class="slide-section">Търся превоз</a>
+                            <a href="index.php#rides" class="slide-section">Търся превоз</a>
                         </li>
                         <li>
-                            <a href="index-logged.html#rides" class="slide-section">Предлагам превоз</a>
+                            <a href="index.php#rides" class="slide-section">Предлагам превоз</a>
                         </li>
-                        <li><a href="index-logged.html#aboutUs">Отзиви</a></li>
-                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="index.php#aboutUs">Отзиви</a></li>
+                        <li><a href="profile.php?id=<?=$_SESSION['user_id'];?>">Профил</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,18 +54,23 @@
                     <div class="well well-sm">
                         <div class="row">
                             <div class="col-sm-6 col-md-3">
-                                <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive"/>
+                                <img src="<?= $user->getPicture();?>" alt="" class="img-rounded img-responsive"/>
                             </div>
                             <div class="col-sm-6 col-md-9">
-                                <h3 id="username">Потребителско име:</h3>
-                                <h3 id="name">Име и фамилия:</h3>
-                                <h3 id="birthday">Рожденна дата:</h3>
-                                <h3 id="gender">Пол:</h3>
-                                <h3 id="email">Email:</h3>
-                                <h3 id="phone">Телефон:</h3>
+                                <h3 id="username"><?= $user->getUsername(); ?></h3>
+                                <h3 id="name"><?= $user->getFirstName() . " " . $user->getLastName(); ?></h3>
+                                <?php
+                                $birthday = new Datetime($user->getBirthday());
+                                ?>
+                                <h3 id="birthday"><?= $birthday->format('d/m/Y'); ?></h3>
+                                <h3 id="gender"><?= $user->getGender(); ?></h3>
+                                <h3 id="email"><?= $user->getEmail(); ?></h3>
+                                <h3 id="phone"><?= $user->getPhone(); ?></h3>
+                                <?php if($id == $_SESSION['user_id']): ?>
                                 <div class="centerButton">
-                                    <button class="btn btn-danger" type="submit">Излез</button>
+                                    <a href="logout.php"><button class="btn btn-danger" type="submit">Излез</button></a>
                                 </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

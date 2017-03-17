@@ -446,6 +446,66 @@
 #aboutUs .picture.second{
     background-image: url(../images/second.jpg);
 }
+#profile{
+    background-image: url(../images/big_thumb_00297a2528269ffcd01955cb6acb0a12.png);
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    overflow:auto;
+    display:flex;
+    justify-content: center;
+}
+#profile button{
+    font-weight: 600;
+    text-transform: uppercase;
+}
+#profile #vertCent{
+    align-self:center;
+}
+#profile #name::before{
+    background-image: url(../images/user.png);
+    content: ' ';
+    height: 24px;
+    width: 24px;
+    margin-right:10px;
+    display: inline-block;
+}
+#profile #birthday::before{
+    background-image: url(../images/calendar.png);
+    content: ' ';
+    height: 24px;
+    width: 24px;
+    margin-right:10px;
+    display: inline-block;
+}
+#profile #username{
+    text-align:center;
+}
+#profile #gender::before{
+    background-image: url(../images/genders.png);
+    content: ' ';
+    height: 24px;
+    width: 24px;
+    margin-right:10px;
+    display: inline-block;
+}
+#profile #email::before{
+    background-image: url(../images/email.png);
+    content: ' ';
+    height: 24px;
+    width: 24px;
+    margin-right:10px;
+    display: inline-block;
+}
+#profile #phone::before{
+    background-image: url(../images/smartphone.png);
+    content: ' ';
+    height: 24px;
+    width: 24px;
+    margin-right:10px;
+    display: inline-block;
+}
 #footer{
     background-color:#efefef;
     padding: 10px 0px;
@@ -502,6 +562,9 @@
     }
     #header a.menuMobile{
         display: block;
+    }
+    .offerRide{
+        margin-bottom:30px;
     }
 }
 

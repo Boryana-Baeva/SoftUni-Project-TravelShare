@@ -36,27 +36,22 @@ CREATE TABLE IF NOT EXISTS `posts` (
   CONSTRAINT `FK_posts_towns_from` FOREIGN KEY (`town_id_from`) REFERENCES `towns` (`id`),
   CONSTRAINT `FK_posts_towns_to` FOREIGN KEY (`town_id_to`) REFERENCES `towns` (`id`),
   CONSTRAINT `FK_posts_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table travel_sharing.posts: ~14 rows (approximately)
+-- Dumping data for table travel_sharing.posts: ~11 rows (approximately)
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 INSERT INTO `posts` (`id`, `user_id`, `date_published`, `town_id_from`, `town_id_to`, `seats`, `departure_time`, `price`, `description`) VALUES
-	(2, 21, '2017-03-12 16:42:26', 1, 3, 1, '2017-07-15 15:30:00', 15, NULL),
-	(9, 18, '2017-03-13 12:53:15', 42, 54, 1, '2017-04-23 04:00:00', 16, ''),
-	(11, 29, '2017-03-13 02:03:08', 257, 7, 1, '2017-03-17 04:00:00', 5, ''),
-	(12, 26, '2017-03-13 02:04:12', 1, 2, 1, '2017-03-17 05:00:00', 5, ''),
-	(13, 34, '2017-03-13 02:07:58', 18, 17, 1, '2017-03-18 14:00:00', 14, ''),
-	(15, 22, '2017-03-13 02:15:11', 7, 111, 1, '2017-03-17 23:00:00', 12, ''),
-	(16, 29, '2017-03-13 02:17:31', 10, 73, 2, '2017-03-01 23:00:00', 10, ''),
-	(17, 18, '2017-03-13 02:19:34', 10, 54, 1, '2017-03-03 22:00:00', 12, ''),
-	(18, 34, '2017-03-13 02:29:10', 11, 202, 2, '2017-03-24 22:00:00', 23, ''),
-	(19, 22, '2017-03-13 20:06:23', 42, 36, 4, '2017-03-18 13:00:00', 11, ''),
-	(20, 28, '2017-03-13 22:24:58', 4, 7, 1, '2017-03-17 00:00:00', 8, ''),
-	(21, 26, '2017-03-14 01:12:54', 42, 36, 4, '2017-03-18 14:00:00', 5, ''),
-	(23, 21, '2017-03-14 16:56:19', 11, 5, 4, '2017-03-19 14:00:00', 25, 'описание'),
-	(26, 29, '2017-03-15 02:25:30', 1, 3, 3, '2017-03-01 01:00:00', 13, ''),
-	(27, 28, '2017-03-15 02:51:26', 1, 7, 1, '2017-03-02 19:00:00', 30, ''),
-	(28, 22, '2017-03-15 02:57:13', 13, 217, 1, '2017-04-01 13:00:00', 6, '');
+	(17, 39, '2017-03-13 02:19:34', 220, 36, 1, '2017-03-03 22:15:00', 22, ''),
+	(18, 38, '2017-03-13 02:29:10', 36, 42, 2, '2017-03-24 22:20:00', 23, ''),
+	(19, 41, '2017-03-13 20:06:23', 194, 36, 4, '2017-03-18 13:00:00', 21, ''),
+	(20, 37, '2017-03-13 22:24:58', 42, 36, 4, '2017-03-18 12:30:00', 28, ''),
+	(21, 40, '2017-03-14 01:12:54', 70, 217, 4, '2017-03-18 14:00:00', 25, ''),
+	(23, 39, '2017-03-14 16:56:19', 220, 217, 4, '2017-03-19 14:30:00', 25, 'описание'),
+	(26, 39, '2017-03-15 02:25:30', 217, 220, 3, '2017-03-18 01:00:00', 23, ''),
+	(27, 38, '2017-03-15 02:51:26', 36, 217, 1, '2017-03-23 19:30:00', 25, ''),
+	(30, 37, '2017-03-16 10:10:20', 176, 42, 2, '2017-03-30 09:15:00', 25, ''),
+	(31, 38, '2017-03-16 10:11:35', 217, 36, 1, '2017-03-30 07:00:00', 25, ''),
+	(32, 37, '2017-03-16 15:33:08', 217, 42, 4, '2017-03-20 19:30:00', 20, '');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 
 -- Dumping structure for table travel_sharing.towns
@@ -345,19 +340,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `picture` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table travel_sharing.users: ~9 rows (approximately)
+-- Dumping data for table travel_sharing.users: ~7 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `gender`, `phone_number`, `rating`, `picture`) VALUES
-	(18, 'Антон', '$2y$10$BNw0g6jPDvWsWsohq4rcaOetDe1jFUN8n3/M5VpZY8pEe1yOvcxlS', 'Антон', 'Петров', 'toni@gmail.com', '1996-07-20 00:00:00', 'male', '+359888246893', 0, NULL),
-	(21, 'Иво', '$2y$10$gRve5KpacU9phhZY5/AkSeRsDOSLsBFCwXyjfTgmP26VMWKi4cblO', 'Иво', 'Георгиев', 'ivo@mail.com', '1996-07-20 00:00:00', 'male', '+359887457386', 0, NULL),
-	(22, 'Яна', '$2y$10$mg4YBrG4atVRUC3dKk81pePoQc3zyUawVXB7UgK8cQwQ14FclwR62', 'Яна', 'Димитрова', 'yana@gmail.com', '1992-11-01 00:00:00', 'female', '+359887457386', 0, NULL),
-	(26, 'Крис', '$2y$10$goruxt/0E7rAzqblK4iOs.2Ij73CfkWvfeBP8mGQ.07zkEbmcwmO2', 'Кристиан', 'Ангелов', 'chris@mail.com', '1992-05-30 00:00:00', 'male', '+359888197795', 0, NULL),
-	(28, 'Ангел', '$2y$10$EwdKJtgj9et0gQRmtfh7lOzk2aR9H92ntzyZ8muBX9ka0NwNLS0pa', 'Ангел', 'Начев', 'angel@mail.bg', '1992-12-02 00:00:00', 'male', '+359888192038', 0, NULL),
-	(29, 'Мишо', '$2y$10$x4xIGBb6wvUXPdf4rpLzWeHcP.MXslcq2HB0S9YTtFZsVdo7jqK8u', 'Михаил', 'Божинов', 'misho@mail.com', '1988-05-15 00:00:00', 'male', '+359888123654', 0, NULL),
-	(33, '&lt;ul&gt;&lt;li&gt;borry&lt;/li&gt;&lt;/ul&gt;', '$2y$10$FGJlkkMKj/n3KEPxG9Gl1O.YX58VEsmlcSOtrAqAYdem93Cu6WYsy', '&lt;ul&gt;&lt;li&gt;borry&lt;/li&gt;&lt;/ul&gt;', '&lt;ul&gt;&lt;li&gt;borry&lt;/li&gt;&lt;/ul&gt;', 'borry@gmail.com', '1991-01-01 00:00:00', 'female', '+359887457386', 0, NULL),
-	(34, 'Ана', '$2y$10$q7rrdIzm6Rwh2UatzXhFj.AYsKBj5Ejgj4VLg0JmpCeut5jP9rozm', 'Ана', 'Димитрова', 'ana@gmail.com', '1994-07-22 00:00:00', 'female', '+359888123654', 0, NULL);
+	(22, 'Яна', '$2y$10$mg4YBrG4atVRUC3dKk81pePoQc3zyUawVXB7UgK8cQwQ14FclwR62', 'Яна', 'Димитрова', 'yana@gmail.com', '1992-11-01 00:00:00', 'female', '+359887457386', 0, '/Teamwork-Glaurung-master/images/second.jpg'),
+	(33, '&lt;ul&gt;&lt;li&gt;borry&lt;/li&gt;&lt;/ul&gt;', '$2y$10$FGJlkkMKj/n3KEPxG9Gl1O.YX58VEsmlcSOtrAqAYdem93Cu6WYsy', '&lt;ul&gt;&lt;li&gt;borry&lt;/li&gt;&lt;/ul&gt;', '&lt;ul&gt;&lt;li&gt;borry&lt;/li&gt;&lt;/ul&gt;', 'borry@gmail.com', '1991-01-01 00:00:00', 'female', '+359887457386', 0, '/Teamwork-Glaurung-master/images/no_avatar.jpg'),
+	(37, 'Боряна', '$2y$10$IQFOohY0PPXe5bxFaFWfseLD265FgQm2xaoiByoiQiDPv.I/tpPSK', 'Боряна', 'Баева', 'boryana@gmail.com', '1992-11-01 00:00:00', 'female', '+359888123456', 0, '/Teamwork-Glaurung-master/images/second.jpg'),
+	(38, 'Димитър', '$2y$10$eJX8oUymZDYpDZSRALhykOrhpoyRvCOJkh9sm8udbn44g4ACnZSaK', 'Димитър', 'Иванов', 'dimitar@gmail.com', '1996-05-05 00:00:00', 'male', '+359888456123', 0, '/Teamwork-Glaurung-master/images/mitakamadafaka.jpg'),
+	(39, 'Борислав', '$2y$10$AbVP4cZfdahPbBqHDSiT1efz1XRvuRX16x2D4Gq5ZI86kiCqv4lFC', 'Борислав', 'Русков', 'borislav@gmail.com', '1997-03-17 00:00:00', 'male', '+359888654321', 0, '/Teamwork-Glaurung-master/images/borislav.jpg'),
+	(40, 'Тихомир', '$2y$10$KjK32ntHLjUXS8tqlSoR7Oa5EvGJMdvEOOUDvFNC3STtoUr1H820a', 'Тихомир', 'Ташев', 'tihomir@gmail.com', '1991-03-27 00:00:00', 'male', '+359888987654', 0, '/Teamwork-Glaurung-master/images/no_avatar.jpg'),
+	(41, 'Манол', '$2y$10$1XBjocxXAEBJfYgCgxwAp.5pes1qJdpAeEOg4Q9VDOMVM5ODA2E2m', 'Манол', 'Великов', 'manol@gmail.com', '1970-01-01 00:00:00', 'male', '+359888678345', 0, '/Teamwork-Glaurung-master/images/no_avatar.jpg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

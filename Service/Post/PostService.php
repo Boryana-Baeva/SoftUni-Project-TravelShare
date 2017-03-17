@@ -69,11 +69,13 @@ class PostService implements PostServiceInterface
     }
 
 
-    private function find($where = null, $params = [])
+    private function find($where = null, $params = []): AllPostsViewData
     {
         $query = "
                   SELECT 
+                    posts.user_id as authorId,
                     users.username AS author,
+                    users.picture,
                    DATE(posts.date_published) AS datePublished,
                    t1.town_name AS townFrom,
                    t2.town_name AS townTo,
@@ -108,7 +110,6 @@ class PostService implements PostServiceInterface
         $lazyLoadedAllPosts = function () use ($stmt) {
             /** @var PostsViewData $post */
             while ($post = $stmt->fetchObject(PostsViewData::class)) {
-
                 yield $post;
             }
         };

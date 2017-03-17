@@ -51,15 +51,15 @@ class UserService implements UserServiceInterface
                              string $phone)
     {
         if ($this->exists($username)) {
-            throw new RegisterException("Username already exists");
+            throw new RegisterException("Потребителското име вече съществува.");
         }
 
         if ($password != $confirmPassword) {
-            throw new RegisterException("Password mismatch");
+            throw new RegisterException("Несъответствие в паролата.");
         }
-        
+
         if(strlen($password) < self::MIN_PASS_LENGTH){
-            throw new RegisterException("Password must be at least 6 characters");
+            throw new RegisterException("Паролата трябва да бъде минимум 6 символа.");
         }
 
         $passwordHash = $this->encryptionService->encrypt($password);
@@ -121,13 +121,13 @@ class UserService implements UserServiceInterface
         /** @var User $user */
         $user = $stmt->fetchObject(User::class);
         if (!$user) {
-            throw new LoginException("Account registered with this email does not exist");
+            throw new LoginException("Няма намерен акаунт с този имейл адрес.");
         }
 
         $passwordHash = $user->getPassword();
 
         if (!$this->encryptionService->isValid($passwordHash, $password)) {
-            throw new LoginException("Incorrect password");
+            throw new LoginException("Грешна парола.");
         }
 
         return $user;

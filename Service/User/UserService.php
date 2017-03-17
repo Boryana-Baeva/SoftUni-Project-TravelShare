@@ -3,6 +3,7 @@
 namespace Service\User;
 
 use Adapter\DatabaseInterface;
+use Data\Users\UserViewData;
 use Exceptions\LoginException;
 use Exceptions\RegisterException;
 use Service\Encryption\EncryptionServiceInterface;

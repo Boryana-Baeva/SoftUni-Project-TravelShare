@@ -76,4 +76,9 @@ class UserViewData
         return $this->username;
     }
     
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+    
 }

@@ -157,7 +157,11 @@ class UserService implements UserServiceInterface
 
         /** @var User $user */
         $user = $stmt->fetchObject(User::class);
-
+        
+        if (!$user->getPicture()) {
+            $user->setPicture(dirname($_SERVER['PHP_SELF']) . '/images/no_avatar.jpg');
+        }
+        
         return $user;
     }
 

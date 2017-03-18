@@ -8,13 +8,6 @@ unset($_SESSION['errorMessage']);
 $userService = new UserService($db, $encryptionService);
 if (isset($_POST['register'])) {
 
-    $captcha = $_POST['g-recaptcha-response'];
-
-    if(!$captcha){
-        header("Location: register.php");
-        exit;
-    }
-
     try{
 
         if(!isset($_POST['rules'])){

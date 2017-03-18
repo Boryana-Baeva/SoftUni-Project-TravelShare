@@ -110,6 +110,9 @@ class PostService implements PostServiceInterface
         $lazyLoadedAllPosts = function () use ($stmt) {
             /** @var PostsViewData $post */
             while ($post = $stmt->fetchObject(PostsViewData::class)) {
+		if (!$post->getPicture()) {
+                    $post->setPicture(dirname($_SERVER['PHP_SELF']) . '/images/no_avatar.jpg');
+                }
                 yield $post;
             }
         };

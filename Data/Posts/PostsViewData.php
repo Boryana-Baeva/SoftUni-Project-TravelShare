@@ -78,4 +78,10 @@ class PostsViewData
     {
         return $this->description;
     }
+    
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
 }
